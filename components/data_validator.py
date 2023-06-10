@@ -18,6 +18,10 @@ class IDataValidator(ABC):
 
 
 class LEIDataValidator(IDataValidator):
+    """
+    This class is responsible for validating input and output data.
+    You can use it as a template for other data validators, e.g. for validating data from databases.
+    """
     def validate_input_data(self, df: pd.DataFrame) -> bool:
         expected_columns = ['lei', 'notional', 'rate']
         missing_columns = [col for col in expected_columns if col not in df.columns]

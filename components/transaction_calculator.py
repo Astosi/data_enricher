@@ -38,6 +38,13 @@ class TransactionCostsFormula(Formula):
 
 
 def calculate(df: pd.DataFrame, column_name: str, formula: Formula) -> pd.DataFrame:
+    """
+    :param df: input DataFrame
+    :param column_name: name of the column to calculation result will be set
+    :param formula: Check Formula abstract class to get an idea of how to implement a formula.
+    You have to override apply function. apply(self, row: pd.Series) -> Optional[float]
+    :return: df with new column. df[column_name] = formula.apply(row)
+    """
     cores = cpu_count()
     pool = Pool(cores)
 

@@ -1,7 +1,6 @@
 import argparse
 import asyncio
-import multiprocessing as mp
-import os
+
 
 from components.data_enricher import LeiLookupClient, DataEnricher, LeiLookupCache
 from components.data_source import CsvDataSource
@@ -65,6 +64,7 @@ class MainRunner:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Data enrichment app.')
+
     parser.add_argument('--client', type=str, default='LeiLookupClient', help='The client.')
     parser.add_argument('--cache_size', type=int, default=100, help='The size of the cache.')
     parser.add_argument('--sleep_rate', type=float, default=0.6, help='The sleep rate between requests.')

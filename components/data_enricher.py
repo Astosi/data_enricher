@@ -61,9 +61,13 @@ class LeiLookupClient(IClient):
             url = f'{self.base_url}{id_}'
             for attempt in range(self.retry_attempts):
                 async with self.session.get(url, ssl=False) as response:
+                    # Check if the response is successful
                     if response.status == 200:
                         data = await response.text()
+
+                        # Add the data to the cache to avoid fetching it again
                         self.cache.add(id_, data)
+
                         await asyncio.sleep(self.rate_limit_pause)
                         logger.info(f'Fetched data for ID {id_} from the server.')
                         return data
@@ -87,6 +91,7 @@ class LeiLookupClient(IClient):
     async def initialize(self):
         self.session = aiohttp.ClientSession()
 
+    # If you want to use it with the `with` statement, auto-initialize and close the session
     async def __aenter__(self):
         self.session = aiohttp.ClientSession()
         return self

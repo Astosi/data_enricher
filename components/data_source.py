@@ -16,6 +16,10 @@ class IDataSource(ABC):
 
 
 class CsvDataSource(IDataSource):
+    """
+    This class is responsible for saving and loading data from CSV files.
+    You can use it as a template for other data sources, e.g. databases.
+    """
 
     def save_data(self, file: pd.DataFrame, filename: str):
         try:
