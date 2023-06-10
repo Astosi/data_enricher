@@ -1,6 +1,12 @@
-name: Test
+name: Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Adjust this branch name if necessary
+  pull_request:
+    branches:
+      - main  # Adjust this branch name if necessary
 
 jobs:
   test:
@@ -20,3 +26,11 @@ jobs:
 
       - name: Run tests
         run: pytest tests
+
+      - name: Update status indicator
+        if: ${{ success() }}
+        uses: actions-ecosystem/action-badge@v1
+        with:
+          path: 'tests'
+          status: 'passing'
+          style: 'flat-square'
