@@ -17,6 +17,9 @@ class Formula(ABC):
 
 
 class TransactionCostsFormula(Formula):
+    """
+    Formula to calculate transaction costs. You can use this as an example to implement your own formula.
+    """
 
     def apply(self, row: pd.Series) -> Optional[float]:
         legal_address_country = row['country']
