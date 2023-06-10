@@ -1,4 +1,5 @@
-[![Tests](https://img.shields.io/badge/Tests-Passing-success)](https://github.com/Astosi/data_enricher/actions)# Data Enrichment App 
+[![Tests](https://img.shields.io/badge/Tests-Passing-success)](https://github.com/Astosi/data_enricher/actions)
+# Data Enrichment App 
 
 The Data Enrichment Application is a robust, production-ready Python-based software solution designed to facilitate and automate data enrichment. 
 
