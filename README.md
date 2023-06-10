@@ -15,10 +15,10 @@ The Python development environment was configured with the necessary packages to
 
 ## Components
 The project comprises components such as;
-* `Data enricher`: Uses an API client to fetch and parse data, and then enriches the input data.,
 * `Data parser`: Parses the data from API responses into a specific format.,
 * `Data validator`: Validates the input and output data, 
 * `Data source`: Handles the loading and saving of data, 
+* `Data enricher`: Uses an API client to fetch and parse data, and then enriches the input data., 
 * `Transaction calculator`: Calculates the custom transaction costs based on the business logic.,
 
 Each component performs distinct roles, from parsing API responses, validating data, fetching and parsing data, to carrying out specific calculations.
@@ -108,6 +108,16 @@ Once the repository is cloned, and the required packages are installed, the appl
 ```bash
 python main.py --client LeiLookupClient --cache_size 100 --sleep_rate 0.6 --retry_attempts 3 --log_level INFO --input_file data/input_dataset.csv --output_file data/output_data.csv
 ```
+
+You can also use command-line arguments to customize the behavior of the script (they all have default values so it's not obligatory):
+
+    --client: The client used to fetch data from the API. The default is LeiLookupClient.
+    --cache_size: The size of the cache. The default is 100.
+    --sleep_rate: The rate at which to pause between requests to adhere to rate limiting. The default is 0.6 seconds.
+    --retry_attempts: The number of retry attempts in case of failed requests. The default is 3.
+    --log_level: The level of logging. The default is INFO.
+    --input_file: The path to the input file. The default is data/input_dataset.csv.
+    --output_file: The path to the output file. The default is data/output_data.csv.
 
 ## Tests
 To ensure that the components function as expected, unit tests were created using pytest. To run the tests, use:
