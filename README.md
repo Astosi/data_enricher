@@ -112,7 +112,6 @@ python main.py --client LeiLookupClient --cache_size 100 --sleep_rate 0.6 --retr
 ### Environment Variables
 Before running the data_enricher project, it's crucial to set up the environment variables properly in the .env file.
 
-* `ROOT_DIR` : This defines the root directory for the project.
 * `LOG_DIR` : This specifies the directory where log files will be stored.
 
 You can also use command-line arguments to customize the behavior of the script (they all have default values so it's not obligatory):
