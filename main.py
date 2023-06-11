@@ -14,7 +14,7 @@ logger = Logger.get_logger(__name__)
 from logger.str_tool import boxify
 
 
-class MainRunner:
+class DataEnrichmentRunner:
     def __init__(self, client=None,
                  cache_size=100,
                  sleep_rate=0.6,
@@ -77,4 +77,4 @@ if __name__ == "__main__":
     arg_dict = vars(args)
 
     print(boxify('Data Enrichment App', arg_dict))
-    asyncio.run(MainRunner(**arg_dict).run())
+    asyncio.run(DataEnrichmentRunner(**arg_dict).run())

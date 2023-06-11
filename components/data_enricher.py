@@ -23,7 +23,7 @@ class IClient(ABC):
 
 class LeiLookupClient(IClient):
     """
-    Client for fetching data from the Lei Lookup API.
+    Client for fetching data from the Lei Lookup.
 
     This class provides the functionality to interact with the gleif API using LEI(Legal Entity Identifier) and
      retrieve data from it.
