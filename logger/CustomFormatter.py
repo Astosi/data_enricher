@@ -1,7 +1,7 @@
 import logging
 import time
 
-class CoolFormatter(logging.Formatter):
+class CustomFormatter(logging.Formatter):
     # ANSI color codes
     COLOR_CODES = {
         "MAGENTA": "\033[95m",

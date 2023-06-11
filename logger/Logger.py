@@ -4,7 +4,7 @@ import sys
 from logging.handlers import TimedRotatingFileHandler
 from typing import Any, Union
 
-from .CustomFormatter import CoolFormatter
+from .CustomFormatter import CustomFormatter
 
 # Define the default logging level
 DEFAULT_LOGGING_LEVEL = logging.INFO
@@ -64,8 +64,8 @@ class LoggerSingleton:
         file_handler.setFormatter(self.get_file_formatter())
         return file_handler
 
-    def get_formatter(self) -> CoolFormatter:
-        return CoolFormatter()
+    def get_formatter(self) -> CustomFormatter:
+        return CustomFormatter()
 
     def get_file_formatter(self) -> logging.Formatter:
         return logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
