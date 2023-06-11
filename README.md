@@ -109,6 +109,11 @@ Once the repository is cloned, and the required packages are installed, the appl
 ```bash
 python main.py --client LeiLookupClient --cache_size 100 --sleep_rate 0.6 --retry_attempts 3 --log_level INFO --input_file data/input_dataset.csv --output_file data/output_data.csv
 ```
+### Environment Variables
+Before running the data_enricher project, it's crucial to set up the environment variables properly in the .env file.
+
+* `ROOT_DIR` : This defines the root directory for the project.
+* `LOG_DIR` : This specifies the directory where log files will be stored.
 
 You can also use command-line arguments to customize the behavior of the script (they all have default values so it's not obligatory):
 
