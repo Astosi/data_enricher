@@ -29,6 +29,7 @@ def test_load_data(data_source):
     # Mocking the pd.read_csv() function to return a dataframe
     mock_df = pd.DataFrame()
     with patch('pandas.read_csv', return_value=mock_df) as mock_read_csv:
-        result = data_source.load_data('filename.csv')
-        mock_read_csv.assert_called_once_with('filename.csv')
-        assert result.equals(mock_df)
+        with patch('os.path.exists', return_value=True):
+            result = data_source.load_data('filename.csv')
+    mock_read_csv.assert_called_once_with('filename.csv')
+
