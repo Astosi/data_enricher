@@ -18,24 +18,24 @@ class LEIDataParser(IDataParser):
     def parse_legal_name(item: dict) -> str:
         try:
             return item['data'][0]['attributes']['entity']['legalName']['name']
-        except (KeyError, IndexError):
-            logger.warning('Failed to parse legal name from data.')
+        except (KeyError, IndexError) as e:
+            logger.warning(f'Failed to parse legal name from data. \n {e}')
             return ''
 
     @staticmethod
     def parse_bic(item: dict) -> str:
         try:
             return item['data'][0]['attributes']['bic'][0]
-        except (KeyError, IndexError):
-            logger.warning('Failed to parse BIC from data.')
+        except (KeyError, IndexError) as e:
+            logger.warning(f'Failed to parse BIC from data. \n {e}')
             return ''
 
     @staticmethod
     def parse_country(item: dict) -> str:
         try:
             return item['data'][0]['attributes']['entity']['legalAddress']['country']
-        except (KeyError, IndexError):
-            logger.warning('Failed to parse country from data.')
+        except (KeyError, IndexError) as e:
+            logger.warning(f'Failed to parse country from data. \n {e}')
             return ''
 
     @classmethod
@@ -61,5 +61,5 @@ class LEIDataParser(IDataParser):
                 })
             except (IndexError, KeyError, json.JSONDecodeError, TypeError) as e:
                 parsed_data.append({'legal_name': None, 'bic': None, 'country': None})
-                logger.error(f'Error occurred while parsing data. {e}' )
+                logger.error(f'Error occurred while parsing data. \n {e}' )
         return parsed_data
